@@ -190,7 +190,21 @@ class LinkedList:
             temp = temp.next
             cnt += 1
         temp.next = None
-    
+
+    def merge(self, q):
+        p_curr = self.head
+        q_curr = q.head
+        while(p_curr and q_curr):
+            p_next = p_curr.next
+            q_next = q_curr.next
+
+            q_curr.next = p_next
+            p_curr.next = q_curr
+
+
+            p_curr = p_next
+            q_curr = q_next
+        
         
 
     def pair_swap(self):
@@ -214,27 +228,15 @@ llist.append("K")
 llist.append("L")
 
 llist1 = LinkedList()
-llist1.append("A")
-llist1.append("B")
-llist1.append("C")
-llist1.append("D")
-llist1.append("E")
-llist1.append("F")
-llist1.append("G")
+llist1.append(1)
+llist1.append(2)
+llist1.append(3)
+llist1.append(4)
+llist1.append(5)
+llist1.append(6)
+llist1.append(7)
 # llist.pair_swap()
-start = timer()
-llist.shift(10)
-end = timer()
-print(end - start)
-
-llist.printList()
-
-
-print('-------')
-start = timer()
-llist1.rightRotate(3)
-end = timer()
-print(end - start)
+llist1.merge(llist)
 llist1.printList()
 
 # llist.deletePosition(3)
