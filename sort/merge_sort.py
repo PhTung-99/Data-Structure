@@ -27,7 +27,7 @@ def mergeSort(arr):
 
 
 if __name__ == '__main__':
-    arr = [4,1,2,3,5,6,4,23,65]
+    arr = [4,1,2,5,8,2]
     print(arr)
     mergeSort(arr)
     print(arr)
