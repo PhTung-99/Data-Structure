@@ -45,9 +45,9 @@ class LinkedList:
 def merge_sorted(list1, list2):
     temp = None
     if list1 is None:
-        return 
+        return list2
     if list2 is None:
-        return 
+        return list1
     
     if list1.data <= list2.data:
         temp = list1
@@ -71,6 +71,8 @@ llist2.append(2)
 llist2.append(4)
 llist2.append(5)
 llist2.append(8)
+llist2.append(10)
+llist2.append(18)
 l = LinkedList()
 l.head = merge_sorted(llist1.head, llist2.head)
 l.printList()
