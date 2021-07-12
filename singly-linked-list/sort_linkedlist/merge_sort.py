@@ -35,17 +35,18 @@ class Merge_Sort(LinkedList):
             fast = fast.next.next
         return slow
 
+
+
 if __name__ == "__main__":
     llist = Merge_Sort()
 
     llist.append(15)
+    llist.append(21)
+    llist.append(24)
+    llist.append(17)
+    llist.append(23)
     llist.append(10)
     llist.append(5)
-    llist.append(20)
-    llist.append(3)
-    llist.append(2)
-    llist.append(5)
-    llist.append(25)
     llist.head = llist.mergeSort(llist.head)
     llist.printList()
     

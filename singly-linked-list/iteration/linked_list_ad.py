@@ -3,9 +3,6 @@
 #pair swap
 #shift
 
-from timeit import default_timer as timer
-
-
 class Node:
     def __init__(self, head): 
         self.data = head
