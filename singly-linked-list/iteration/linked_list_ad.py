@@ -242,13 +242,25 @@ class LinkedList:
             s.next = p 
         self.head = new_head
 
-
-        
-
-
-            
+    def isPalindrome(self):
+        fast = slow = self.head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
     
-
+        node = None
+        temp = self.head
+        while slow:
+            nxt = slow.next
+            slow.next = node
+            node = slow
+            slow = nxt
+        while node:
+            if node.data != temp.data:
+                return False
+            node = node.next
+            temp = temp.next    
+        return True
              
 llist = LinkedList()
 llist.append("A")
