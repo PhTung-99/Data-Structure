@@ -1,16 +1,20 @@
-class Tree:
-    def __init__(self, value):
-        self.value = value
+class Node:
+    def __init__(self, data):
         self.left = None
         self.right = None
+        self.value = data
+
+class Tree:
+    def __init__(self):
+        self.node = None
 
     def print_tree(self, traversal_type):
         if traversal_type == "preorder":
-            self.preorder_print(tree)
+            self.preorder_print(self.node)
         elif traversal_type == "inorder":
-            self.inorder_print(tree)
+            self.inorder_print(self.node)
         elif traversal_type == "postorder":
-            self.postorder_print(tree)
+            self.postorder_print(self.node)
 
         else:
             print("Traversal type " + str(traversal_type) + " is not supported.")
@@ -85,14 +89,16 @@ class Tree:
 
 # Set up tree:
 if __name__ == "__main__":
-    tree = Tree(1)
-    tree.left = Tree(2)
-    tree.right = Tree(3)
-    tree.left.left = Tree(4)
-    tree.left.right = Tree(5)
-    tree.left.right.right = Tree(8)
-    tree.right.left = Tree(6)
-    tree.right.right = Tree(7)
+    tree = Tree()
+    tree.node = Node(5)
+    tree.node.left = Node(2)
+    tree.node.right = Node(3)
+    tree.node.left.left = Node(4)
+    tree.node.left.right = Node(5)
+    tree.node.left.right.right = Node(8)
+    tree.node.right.left = Node(6)
+    tree.node.right.right = Node(7)
     # tree.print_tree("preorder")
     tree.print_tree("inorder")
-    # tree.print_tree("postorder")
+    print()
+    tree.print_tree("postorder")
