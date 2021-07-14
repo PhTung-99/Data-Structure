@@ -19,8 +19,7 @@ class Tree:
     def preorder_print(self, start):
         """Root->Left->Right"""
         if start:
-            if start.value:
-                print(start.value, end = "->")
+            print(start.value, end = "->")
             self.preorder_print(start.left)
             self.preorder_print(start.right)
 
@@ -29,8 +28,7 @@ class Tree:
         if start:
             
             self.inorder_print(start.left)
-            if start.value:
-                print(start.value, end = "->")
+            print(start.value, end = "->")
             self.inorder_print(start.right)
 
     def postorder_print(self, start):
@@ -38,8 +36,7 @@ class Tree:
         if start:
             self.postorder_print(start.left)
             self.postorder_print(start.right)
-            if start.value is not None:
-                print(start.value, end = "->")
+            print(start.value, end = "->")
 
 
 # 1-2-4-5-3-6-7
