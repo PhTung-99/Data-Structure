@@ -5,9 +5,14 @@ class Height(Tree):
             return 0
         left_height = self.getHeight(node.left)
         right_height = self.getHeight(node.right)
-        return 1 + max(left_height + right_height)
+        return 1 + max(left_height, right_height)
 
 if __name__ == "__main__":
+#               1
+#           /       \  
+#          2          3  
+#         /  \      /   \
+#        4    5     6   7 
     tree = Height(1)
     tree.left = Tree(2)
     tree.right = Tree(3)
