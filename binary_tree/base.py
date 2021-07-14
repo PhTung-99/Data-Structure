@@ -55,6 +55,7 @@ if __name__ == "__main__":
     tree.right = Tree(3)
     tree.left.left = Tree(4)
     tree.left.right = Tree(5)
+    tree.left.right.right = Tree(8)
     tree.right.left = Tree(6)
     tree.right.right = Tree(7)
     # tree.print_tree("preorder")
