@@ -1,10 +1,4 @@
 from base import *
-class BinaryTree:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-
 
 def branchSums(root):
     # Write your code here.
@@ -27,12 +21,15 @@ def branchSumsHelper(root, runningSum, sums):
         runningSum += root.right.value
         branchSumsHelper(root.right, runningSum, sums)
         runningSum -= root.right.value
-tree = Tree(1)
-tree.left = Tree(2)
-tree.right = Tree(3)
-tree.left.left = Tree(4)
-tree.left.right = Tree(5)
-tree.right.left = Tree(6)
-tree.right.right = Tree(7)
-print(branchSums(tree))
+if __name__ == "__main__":
+    tree = Tree()
+    tree.node = Node(5)
+    tree.node.left = Node(2)
+    tree.node.right = Node(3)
+    tree.node.left.left = Node(4)
+    tree.node.left.right = Node(5)
+    tree.node.left.right.right = Node(8)
+    tree.node.right.left = Node(6)
+    tree.node.right.right = Node(7)
+    print(branchSums(tree.node))
 

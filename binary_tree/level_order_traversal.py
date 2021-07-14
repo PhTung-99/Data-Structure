@@ -1,7 +1,7 @@
 from base import *
 
 class LevelOrder(Tree):
-    def levelorder_print(self, start):
+    def _levelorder_print(self, start):
         if start is None:
             return 
 
@@ -17,14 +17,21 @@ class LevelOrder(Tree):
             if node.right:
                 queue.append(node.right)
         print(data)
+    def levelorder_print(self):
+        if self.node:
+            self._levelorder_print(self.node)
+        else:
+            print("None")
 
 
 if __name__ == "__main__":
-    tree = LevelOrder(1)
-    tree.left = Tree(2)
-    tree.right = Tree(3)
-    tree.left.left = Tree(4)
-    tree.left.right = Tree(5)
-    tree.right.left = Tree(6)
-    tree.right.right = Tree(7)
-    tree.levelorder_print(tree)
+    tree = LevelOrder()
+    tree.node = Node(5)
+    tree.node.left = Node(2)
+    tree.node.right = Node(3)
+    tree.node.left.left = Node(4)
+    tree.node.left.right = Node(5)
+    tree.node.left.right.right = Node(8)
+    tree.node.right.left = Node(6)
+    tree.node.right.right = Node(7)
+    tree.levelorder_print()
