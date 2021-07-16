@@ -8,8 +8,8 @@ class Height(Tree):
         return 1 + max(left_height, right_height)
 
     def getHeight(self):
-        if self.node:
-            return self._getHeight(self.node)
+        if self.root:
+            return self._getHeight(self.root)
         else:
             print("0 - Tree is None")
 
@@ -22,12 +22,12 @@ class Height(Tree):
 #               8
 if __name__ == "__main__":
     tree = Height()
-    tree.node = Node(5)
-    tree.node.left = Node(2)
-    tree.node.right = Node(3)
-    tree.node.left.left = Node(4)
-    tree.node.left.right = Node(5)
-    tree.node.left.right.right = Node(8)
-    tree.node.right.left = Node(6)
-    tree.node.right.right = Node(7)
+    tree.root = Node(5)
+    tree.root.left = Node(2)
+    tree.root.right = Node(3)
+    tree.root.left.left = Node(4)
+    tree.root.left.right = Node(5)
+    tree.root.left.right.right = Node(8)
+    tree.root.right.left = Node(6)
+    tree.root.right.right = Node(7)
     print(tree.getHeight())
