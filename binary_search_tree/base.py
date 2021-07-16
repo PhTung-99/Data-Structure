@@ -89,6 +89,29 @@ class BST:
     def isFullTree(self):
         return self._isFullTree(self.root)
 
+    def _getHeight(self, node):
+        if node is None:
+            return 0
+        return 1 + max(self._getHeight(node.left), self._getHeight(node.right))
+
+    def getHeight(self):
+        return self._getHeight(self.root)
+
+    def _isPerfectTree(self, node, height, level = 1):
+        if node is None:
+            return True
+        if node.left is None and node.right is None and level <= height:
+            return True
+        if node.left and node.right:
+            return self._isPerfectTree(node.left, height, level + 1) and self._isPerfectTree(node.right, height, level + 1)
+        else:
+            return False
+
+    def isPerfectTree(self):
+        height = self.getHeight()
+        return self._isPerfectTree(self.root, height)
+
+
 tree = BST()
 tree.append(5)
 tree.append(2)
@@ -96,9 +119,12 @@ tree.append(7)
 tree.append(1)
 tree.append(3)
 tree.append(6)
-tree.append(9)
-tree.append(12)
+# tree.append(9)
+# tree.append(12)
+# tree.append(10)
+# tree.append(11)
 # tree.append(8)
 tree.print('postorder')
-print(tree.isFullTree())
+# print(tree.isFullTree())
+print(tree.isPerfectTree())
 
