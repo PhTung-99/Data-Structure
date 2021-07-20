@@ -203,11 +203,24 @@ class LinkedList:
             q_curr = q_next
 
     def pair_swap(self):
-        temp = self.head
-        while(temp and temp.next):
-            if (temp.data != temp.next.data):
-                temp.data , temp.next.data = temp.next.data, temp.data
-            temp = temp.next.next
+        if self.head is None or self.head.next is None:
+            return
+        curr = self.head
+        prev = None 
+        while curr and curr.next:
+
+            temp = curr.next
+            curr.next = temp.next
+            temp.next = curr
+
+            if prev is None:
+                self.head = temp
+            else:
+                prev.next = temp
+
+            prev = curr
+            curr = curr.next
+        
 
     def merge_sort(self, llist):
         p = self.head 
@@ -261,23 +274,7 @@ class LinkedList:
             node = node.next
             temp = temp.next    
         return True
-             
-llist = LinkedList()
-llist.append("A")
-llist.append("B")
-llist.append("C")
-llist.append("D")
-llist.append("E")
-llist.append("F")
-llist.append("G")
-llist.append("H")
-llist.append("I")
-llist.append("J")
-llist.append("K")
-llist.append("L")
-
 llist1 = LinkedList()
-llist2 = LinkedList()
 
 llist1.append(1)
 llist1.append(3)
@@ -286,14 +283,6 @@ llist1.append(8)
 llist1.append(10)
 llist1.append(12)
 
-llist2.append(2)
-llist2.append(5)
-llist2.append(8)
-llist2.append(10)
-# llist.pair_swap()
-# llist1.merge_sort(llist2)
-llist3 = LinkedList()
-llist1.merge_sort(llist2)
+llist1.pair_swap()
 llist1.printList()
 
-# llist.deletePosition(3)

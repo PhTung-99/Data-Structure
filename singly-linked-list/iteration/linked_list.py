@@ -109,19 +109,19 @@ class LinkedList:
         while(temp):
             print(temp.data)
             temp = temp.next
+if __name__ == "__main__":
+    llist = LinkedList()
+    # Create a list 10->20->30->40->50->60
+    for i in range(60, 0, -10):
+        llist.append(i)
 
-llist = LinkedList()
-# Create a list 10->20->30->40->50->60
-for i in range(60, 0, -10):
-    llist.append(i)
+    # llist.deleteNode(5)
 
-# llist.deleteNode(5)
-
-llist.printList()
-print("------")
-llist.reverse()
-llist.printList()
-print("Length: " + str(len(llist)))
-# llist.deletePosition(3)
-# print(llist.get(12))
+    llist.printList()
+    print("------")
+    llist.reverse()
+    llist.printList()
+    print("Length: " + str(len(llist)))
+    # llist.deletePosition(3)
+    # print(llist.get(12))
 
