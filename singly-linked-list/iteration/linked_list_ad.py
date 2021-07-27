@@ -179,14 +179,10 @@ class LinkedList:
         # current points to the kth node
     
         # Change next of last node to previous head
+        kthnode = current
         tmp.next = self.head
-        cnt = 1
-        self.head = current.next
-        temp = self.head
-        while(cnt<len and temp):
-            temp = temp.next
-            cnt += 1
-        temp.next = None
+        self.head = kthnode.next
+        kthnode.next = None
 
     def merge(self, q):
         p_curr = self.head
@@ -283,6 +279,6 @@ llist1.append(8)
 llist1.append(10)
 llist1.append(12)
 
-llist1.pair_swap()
+llist1.rightRotate(2)
 llist1.printList()
 
