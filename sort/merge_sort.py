@@ -1,29 +1,28 @@
-def mergeSort(arr):
-    arr_len = len(arr)
-    if arr_len > 1:
-        mid = arr_len // 2
-        firstArr = arr[:mid]
-        secondArr = arr[mid:]
-        mergeSort(firstArr)
-        mergeSort(secondArr)
-        i = j = k = 0
-        while i < len(firstArr) and j < len(secondArr):
-            if firstArr[i] < secondArr[j]:
-                arr[k] = firstArr[i]
-                i += 1
-            else:
-                arr[k] = secondArr[j] 
-                j += 1
-            k += 1
-        while i < len(firstArr):
-            arr[k] = firstArr[i]
+def mergeSort(a):
+    if len(a) <= 1:
+        return 
+    mid = len(a) // 2
+    left = a[:mid]
+    right = a[mid:]
+    mergeSort(left)
+    mergeSort(right)
+    i = j = k = 0
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            a[k] = left[i]
             i += 1
-            k += 1
- 
-        while j < len(secondArr):
-            arr[k] = secondArr[j]
+        else:
+            a[k] = right[j]
             j += 1
-            k += 1
+        k += 1
+    while i < len(left):
+        a[k] = left[i]
+        i += 1
+        k += 1
+    while j < len(right):
+        a[k] = right[j]
+        j += 1
+        k += 1
 
 
 if __name__ == '__main__':

@@ -1,24 +1,26 @@
-def partition(a, begin, end):
-    privot = begin
-    for i in range(begin + 1, end + 1):
-        if (a[i] <= a[begin]):
-            privot += 1
-            a[i], a[privot] = a[privot], a[i]
-    a[privot], a[begin] = a[begin], a[privot]
-    return privot
+def parition(a, low, high):
+    i = low - 1
+    privot = a[high]
+    for j in range(low, high):
+        if a[j] <= privot:
+            i += 1
+            a[j], a[i] = a[i], a[j]
+    a[i+1], a[high] = a[high], a[i+1]
+    return i + 1
 
-def quickSort(a, begin = 0, end = None):
-    if end is None:
-        end = len(a) - 1
-    def _quickSort(a, begin, end):
-        if begin >= end:
-            return
-        privot = partition(a, begin, end)
-        _quickSort(a, begin, privot-1)
-        _quickSort(a, privot+1 , end)
-    _quickSort(a, begin, end)
-    
-if __name__ == '__main__':
-    arr = [5,2,1,7,9,3,4,0,5,10]
-    quickSort(arr)
-    print(arr)
+def quickSort(a, low, high):
+    if len(a) == 1:
+        return 
+    if low < high:
+        i = parition(a, low, high)
+        quickSort(a, low, i - 1)
+        quickSort(a, i + 1, high)
+  
+  
+# Driver code to test above
+arr = [10, 7, 14, 9, 13]
+n = len(arr)
+quickSort(arr, 0, n-1)
+print("Sorted array is:")
+for i in range(n):
+    print("%d" % arr[i])

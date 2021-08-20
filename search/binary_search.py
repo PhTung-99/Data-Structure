@@ -1,14 +1,24 @@
 def binary_search(arr, high, low , x):
-    if high >= low:
-        mid = (high + low ) // 2
-        if arr[mid] == x:
-            return mid
-        elif x > arr[mid]:
-            return binary_search(arr, high, mid + 1, x)
-        else:
-            return binary_search(arr, mid - 1, low, x )
-    else:
-        return None
+    # if high >= low:
+    #     mid = (high + low ) // 2
+    #     if arr[mid] == x:
+    #         return mid
+    #     elif x > arr[mid]:
+    #         return binary_search(arr, high, mid + 1, x)
+    #     else:
+    #         return binary_search(arr, mid - 1, low, x )
+    # else:
+    #     return None
+    if low > high:
+            return high+1
+    mid = (high + low) //2 
+    if arr[mid] == x:
+        return mid
+    elif arr[mid] > x:
+        return binary_search(arr, mid - 1, low, x)
+    else: 
+        return binary_search(arr, high, mid + 1,x)
+
 
 
 def binary_search_while(arr, x):
@@ -28,9 +38,8 @@ def binary_search_while(arr, x):
 
 
 
-arr = [ 2 ,3, 4, 10, 40 ]
-x = 40   
+arr = [1,3,5,6]
+x = 2
 result = binary_search(arr, len(arr)-1, 0, x)
 
-if result:
-    print(result)
+print(result)

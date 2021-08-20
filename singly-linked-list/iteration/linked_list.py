@@ -73,6 +73,9 @@ class LinkedList:
 
         temp.next = next
 
+
+
+
     def get(self, data):
         if self is None or data is None:
             return
@@ -109,19 +112,73 @@ class LinkedList:
         while(temp):
             print(temp.data)
             temp = temp.next
+
+
+    def reverse_test(self):
+        p, q = self.head, self.head.next
+        p.next  = None
+        
+        # reverse string by two pointers
+        while q:
+            
+            tmp, q.next = q.next, p
+            p, q = q, tmp
+        self.head = p
+
+    def deleteElement(self, data):
+        curr = self.head
+        prev = None
+        
+        while(curr):
+            if curr.data == data: 
+                if curr == self.head:
+                    self.head = self.head.next
+                    curr = self.head
+                else:
+                    prev.next = curr.next
+                    curr = curr.next
+            else:
+                prev = curr
+                curr = curr.next
+    
+
+    def deleteDuplicates(self):
+        seen = set()
+        curr = self.head
+        prev = None
+        while curr:
+            if curr.data not in seen:
+                seen.add(curr.data)
+                prev = curr
+            else:
+                prev.next = curr.next
+                # prev = curr
+            curr = curr.next
+            # curr = curr.next
+        # self.head = curr
+
+    def delete_test(self, data):
+        curr = self.head
+        
+        while curr and curr.data == data:
+            self.head = curr.next
+            curr = curr.next
+        while curr and curr.next:
+            if curr.next.data == data:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+        
+
 if __name__ == "__main__":
     llist = LinkedList()
-    # Create a list 10->20->30->40->50->60
-    for i in range(60, 0, -10):
+    test = [1,1,1,1,1,3,2,2,1,5,2,3]
+    for i in test:  
         llist.append(i)
-
     # llist.deleteNode(5)
 
     llist.printList()
     print("------")
-    llist.reverse()
+    llist.deleteDuplicates()
     llist.printList()
-    print("Length: " + str(len(llist)))
-    # llist.deletePosition(3)
-    # print(llist.get(12))
 
